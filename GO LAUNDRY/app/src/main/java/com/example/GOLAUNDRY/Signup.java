@@ -49,8 +49,7 @@ public class Signup extends AppCompatActivity {
                          @Override
                          public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                 Toast.makeText(Signup.this, "SignUp Successful", Toast.LENGTH_SHORT).show();
-                                 startActivity(new Intent(Signup.this, Login.class));
+                                sendEmailVerification();
                               } else {
                                  Toast.makeText(Signup.this, "SignUp Failed", Toast.LENGTH_SHORT).show();
                              }
@@ -77,6 +76,24 @@ public class Signup extends AppCompatActivity {
         return result;
 
     }
+    private void sendEmailVerification(){
+        FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if(firebaseUser!=null){
+            firebaseUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener<Void>() {
+                @Override
+                public void onComplete(@NonNull Task<Void> task) {
+                    if(task.isSuccessful()){
+                        Toast.makeText(Signup.this,"Succesfully Registered, Vefification Has Been Sent!",Toast.LENGTH_SHORT).show();
+                        firebaseAuth.signOut();
+                        finish();
+                        startActivity(new Intent(Signup.this, Login.class));
+                    }else{
+                        Toast.makeText(Signup.this, "Verification Has Not Sent!",Toast.LENGTH_SHORT).show();
+                    }
+                }
+                });
+    }
+}
 }
 
 

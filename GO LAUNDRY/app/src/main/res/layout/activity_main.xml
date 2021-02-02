@@ -8,13 +8,13 @@
     tools:context=".Login" >
 
     <EditText
-        android:id="@+id/pt_username"
+        android:id="@+id/pt_email1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="136dp"
         android:drawableLeft="@drawable/ic_action_username"
         android:ems="10"
-        android:hint="Username"
+        android:hint="Email Address"
         android:inputType="textPersonName"
         android:textColor="#FFFDFD"
         android:textColorHighlight="#FAFAFA"
@@ -53,11 +53,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pt_username"
+        app:layout_constraintTop_toBottomOf="@+id/pt_email1"
         app:layout_constraintVertical_bias="0.049" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btn_login"
         android:layout_width="198dp"
         android:layout_height="40dp"
         android:background="@drawable/custom_button"
@@ -80,7 +80,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
         app:layout_constraintVertical_bias="0.12" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
