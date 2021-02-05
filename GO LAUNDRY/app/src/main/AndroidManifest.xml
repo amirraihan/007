@@ -8,7 +8,7 @@
         android:label="GOLaundry"
         android:roundIcon="@mipmap/roundlogo"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        android:theme="@style/Theme.AppCompat">
         <activity android:name=".homepage"></activity>
         <activity android:name=".SplashScreen">
             <intent-filter>

@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class Signup extends AppCompatActivity {
+
     private EditText username, userpass, useremail;
     public Button button;
     private FirebaseAuth firebaseAuth;
