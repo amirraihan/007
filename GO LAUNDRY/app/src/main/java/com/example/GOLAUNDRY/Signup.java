@@ -6,10 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Process;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -17,7 +17,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 
 public class Signup extends AppCompatActivity {
@@ -25,7 +26,9 @@ public class Signup extends AppCompatActivity {
     private EditText username, userpass, useremail;
     public Button button;
     private FirebaseAuth firebaseAuth;
+    private ImageView userProfilePic;
     private ProgressDialog progressDialog;
+    String email,name,password;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +37,7 @@ public class Signup extends AppCompatActivity {
         username = (EditText) findViewById(R.id.pt_username2);
         userpass = (EditText) findViewById(R.id.tv_pass2);
         useremail = (EditText) findViewById(R.id.pt_email);
+        userProfilePic = (ImageView)findViewById(R.id.ivProfile);
 
         firebaseAuth=FirebaseAuth.getInstance();
         /////////////////////////////button link//////////////////////////////////////////////////
@@ -64,9 +68,9 @@ public class Signup extends AppCompatActivity {
     private Boolean validate(){
         Boolean result = false;
 
-        String name = username.getText().toString();
-        String password = userpass.getText().toString();
-        String email = useremail.getText().toString();
+        name = username.getText().toString();
+        password = userpass.getText().toString();
+        email = useremail.getText().toString();
 
         if(name.isEmpty() || password.isEmpty() || email.isEmpty()){
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
@@ -84,6 +88,8 @@ public class Signup extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
+                        sendUserData();
+                        firebaseAuth.signOut();
                         Toast.makeText(Signup.this,"Succesfully Registered, Vefification Has Been Sent!",Toast.LENGTH_SHORT).show();
                         firebaseAuth.signOut();
                         finish();
@@ -92,9 +98,16 @@ public class Signup extends AppCompatActivity {
                         Toast.makeText(Signup.this, "Verification Has Not Sent!",Toast.LENGTH_SHORT).show();
                     }
                 }
-                });
+            });
     }
+
 }
+    private void sendUserData() {
+        FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
+        UserProfile userProfile = new UserProfile(name,email);
+        myRef.setValue(userProfile);
+    }
 }
 
 

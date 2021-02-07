@@ -11,8 +11,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class homepage extends AppCompatActivity {
 
-
     private FirebaseAuth firebaseAuth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +41,8 @@ public class homepage extends AppCompatActivity {
             case R.id.logoutMenu:{
                 Logout();
             }
+            case R.id.ProfileMenu:
+                startActivity(new Intent(homepage.this, profilePage.class));
         }
         return super.onOptionsItemSelected(item);
     }

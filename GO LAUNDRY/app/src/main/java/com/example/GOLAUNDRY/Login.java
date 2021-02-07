@@ -94,12 +94,14 @@ public class Login extends AppCompatActivity {
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailflag = firebaseUser.isEmailVerified();
 
-        if (emailflag){
-            finish();
-            startActivity(new Intent(Login.this,homepage.class));
-        }else{
-            Toast.makeText(this,"Verify Email",Toast.LENGTH_SHORT).show();
-            firebaseAuth.signOut();
-        }
+        startActivity(new Intent(Login.this,homepage.class));
+
+ //       if (emailflag){
+ //           finish();
+ //           startActivity(new Intent(Login.this,homepage.class));
+ //       }else{
+//            Toast.makeText(this,"Verify Email",Toast.LENGTH_SHORT).show();
+  //         firebaseAuth.signOut();
+     //   }
     }
 }

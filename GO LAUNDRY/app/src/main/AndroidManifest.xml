@@ -9,8 +9,9 @@
         android:roundIcon="@mipmap/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".ForgotPass"></activity>
-        <activity android:name=".homepage"></activity>
+        <activity android:name=".profilePage"></activity>
+        <activity android:name=".ForgotPass" />
+        <activity android:name=".homepage" />
         <activity android:name=".SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
