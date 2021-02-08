@@ -3,13 +3,11 @@ package com.example.GOLAUNDRY;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -19,61 +17,57 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class profilePage extends AppCompatActivity {
+public class UpdateProfile extends AppCompatActivity {
 
-    private ImageView profilePic;
-    private TextView profileName, profileEmail;
-    private Button profileUpdate, changepassword;
+    private EditText newUsername,newUserEmail;
+    private Button save;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_profile_page);
+        setContentView(R.layout.activity_update_profile);
 
-        profilePic = findViewById(R.id.iv_profilePic);
-        profileName = findViewById(R.id.tv_Name);
-        profileEmail = findViewById(R.id.tv_Email);
-        profileUpdate = findViewById(R.id.btn_edit);
-        changepassword = findViewById(R.id.btn_changepass);
+        newUsername = findViewById(R.id.pt_nameupdate);
+        newUserEmail = findViewById(R.id.pt_emailupdate);
+        save = findViewById(R.id.btn_save);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
+        final DatabaseReference databaseReference = firebaseDatabase.getReference(firebaseAuth.getUid());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
-                profileName.setText("Name: " + userProfile.getUsername());
-                profileEmail.setText("Email: " + userProfile.getUseremail());
+                newUsername.setText( userProfile.getUsername());
+                newUserEmail.setText( userProfile.getUseremail());
             }
 
             @Override
             public void onCancelled( DatabaseError databaseError) {
-                Toast.makeText(profilePage.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(UpdateProfile.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
 
-        profileUpdate.setOnClickListener(new View.OnClickListener() {
+        save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                startActivity(new Intent(profilePage.this, UpdateProfile.class));
-            }
-        });
+            public void onClick(View view) {
+                String name = newUsername.getText().toString();
+                String email = newUserEmail.getText().toString();
 
-        changepassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(profilePage.this, UpdatePassword.class));
+              UserProfile userProfile = new UserProfile(name, email);
+
+                databaseReference.setValue(userProfile);
+
+                finish();
             }
         });
     }
-
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){

@@ -12,8 +12,9 @@
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginBottom="344dp"
-        android:text="Username:"
+        android:text="Username :"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
@@ -25,8 +26,10 @@
         android:layout_width="306dp"
         android:layout_height="40dp"
         android:layout_marginBottom="272dp"
-        android:text="Email:"
+        android:fontFamily="sans-serif"
+        android:text="Email :"
         android:textSize="18dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,4 +60,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.179"
         app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <Button
+        android:id="@+id/btn_changepass"
+        android:layout_width="152dp"
+        android:layout_height="41dp"
+        android:background="@drawable/custom_button"
+        android:text="Change Password"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_edit"
+        app:layout_constraintVertical_bias="0.328" />
 </androidx.constraintlayout.widget.ConstraintLayout>
