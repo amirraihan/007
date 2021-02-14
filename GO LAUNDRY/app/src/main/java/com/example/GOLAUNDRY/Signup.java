@@ -1,11 +1,16 @@
 package com.example.GOLAUNDRY;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Process;
+import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -13,12 +18,19 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
+import java.io.IOException;
 
 
 public class Signup extends AppCompatActivity {
@@ -28,7 +40,24 @@ public class Signup extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private ImageView userProfilePic;
     private ProgressDialog progressDialog;
-    String email,name,password;
+    private FirebaseStorage firebaseStorage;
+    private static int PICK_IMAGE = 123;
+    Uri imagePath;
+    private StorageReference storageReference;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if(requestCode == PICK_IMAGE && resultCode == RESULT_OK && data.getData() != null){
+            imagePath = data.getData();
+            try {
+                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), imagePath);
+                userProfilePic.setImageBitmap(bitmap);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +66,24 @@ public class Signup extends AppCompatActivity {
         username = (EditText) findViewById(R.id.pt_username2);
         userpass = (EditText) findViewById(R.id.tv_pass2);
         useremail = (EditText) findViewById(R.id.pt_email);
-        userProfilePic = (ImageView)findViewById(R.id.ivProfile);
 
         firebaseAuth=FirebaseAuth.getInstance();
+        firebaseStorage = FirebaseStorage.getInstance();
+
+        StorageReference storageReference = firebaseStorage.getReference();
+        //storageReference myRefl = storageReference.child(firebaseAuth.getUid());
+
+        userProfilePic.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setType("iamge/*");
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                startActivityForResult(Intent.createChooser(intent, "select image"), PICK_IMAGE);
+            }
+        });
+
+
         /////////////////////////////button link//////////////////////////////////////////////////
         button = (Button) findViewById(R.id.btn_signup2);
         button.setOnClickListener(new View.OnClickListener() {
@@ -47,20 +91,20 @@ public class Signup extends AppCompatActivity {
             public void onClick(View v) {
 
                 if(validate()){
-                     String user_pass = userpass.getText().toString().trim();
-                     String user_email = useremail.getText().toString().trim();
+                    String user_pass = userpass.getText().toString().trim();
+                    String user_email = useremail.getText().toString().trim();
 
-                     firebaseAuth.createUserWithEmailAndPassword(user_email, user_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                         @Override
-                         public void onComplete(@NonNull Task<AuthResult> task) {
+                    firebaseAuth.createUserWithEmailAndPassword(user_email, user_pass).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
                                 sendEmailVerification();
-                              } else {
-                                 Toast.makeText(Signup.this, "SignUp Failed", Toast.LENGTH_SHORT).show();
-                             }
-                         }
-                     });
-                 }
+                            } else {
+                                Toast.makeText(Signup.this, "SignUp Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
             }
         });
 
@@ -68,11 +112,11 @@ public class Signup extends AppCompatActivity {
     private Boolean validate(){
         Boolean result = false;
 
-        name = username.getText().toString();
-        password = userpass.getText().toString();
-        email = useremail.getText().toString();
+        String name = username.getText().toString();
+        String password = userpass.getText().toString();
+        String email = useremail.getText().toString();
 
-        if(name.isEmpty() || password.isEmpty() || email.isEmpty()){
+        if(name.isEmpty() || password.isEmpty() || email.isEmpty()  || imagePath == null){
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
         }else{
             result = true;
@@ -88,8 +132,6 @@ public class Signup extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
-                        sendUserData();
-                        firebaseAuth.signOut();
                         Toast.makeText(Signup.this,"Succesfully Registered, Vefification Has Been Sent!",Toast.LENGTH_SHORT).show();
                         firebaseAuth.signOut();
                         finish();
@@ -99,15 +141,26 @@ public class Signup extends AppCompatActivity {
                     }
                 }
             });
+        }
     }
-
-}
-    private void sendUserData() {
+    private void sendUserData(){
         FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = firebaseDatabase.getReference(firebaseAuth.getUid());
-        UserProfile userProfile = new UserProfile(name,email);
-        myRef.setValue(userProfile);
+        DatabaseReference myRef = firebaseDatabase.getReference("UserInfo").child(firebaseAuth.getUid());
+        StorageReference imageReference = storageReference.child(firebaseAuth.getUid()).child("Images").child("Profile Pic");
+        UploadTask uploadTask = imageReference.putFile(imagePath);
+        uploadTask.addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Toast.makeText(Signup.this, "Upload failed", Toast.LENGTH_SHORT).show();
+            }
+        }).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+            @Override
+            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                Toast.makeText(Signup.this, "Upload successful", Toast.LENGTH_SHORT).show();
+            }
+        });
+        UserProfile UserProfile = new UserProfile (username, userpass, useremail);
+        myRef.setValue(UserProfile);
     }
 }
-
 
