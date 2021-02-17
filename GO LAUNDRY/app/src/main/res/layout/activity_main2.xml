@@ -7,24 +7,12 @@
     android:background="#152238"
     tools:context=".Signup">
 
-    <ImageView
-        android:id="@+id/ivProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.088"
-        app:srcCompat="@drawable/logo_laundry" />
-
     <EditText
         android:id="@+id/pt_username2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:drawableLeft="@drawable/ic_action_username"
+        android:ems="10"
         android:hint="Username"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
@@ -34,7 +22,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ivProfile"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.175" />
 
     <EditText
         android:id="@+id/pt_email"
@@ -81,5 +69,16 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pass2" />
+
+    <ImageView
+        android:id="@+id/ivProfile"
+        android:layout_width="181dp"
+        android:layout_height="151dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@mipmap/photohere" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

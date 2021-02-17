@@ -22,7 +22,7 @@ public class Login extends AppCompatActivity {
     private EditText username, userpass, useremail;
     private FirebaseAuth firebaseAuth;
     private ProgressDialog progressDialog;
-    public Button button;
+    public Button button,button_signup;
     private TextView ForgotPassword;
 
 
@@ -36,10 +36,10 @@ public class Login extends AppCompatActivity {
 
         firebaseAuth=FirebaseAuth.getInstance();
         /////////////////////////////button link//////////////////////////////////////////////////
-        button = (Button) findViewById(R.id.btn_signup);
-        button.setOnClickListener(new View.OnClickListener() {
+        button_signup = (Button) findViewById(R.id.btn_signup);
+        button_signup.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 Intent intent = new Intent(Login.this, Signup.class );
                 startActivity(intent);
             }

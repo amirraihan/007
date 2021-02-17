@@ -1,13 +1,9 @@
 package com.example.GOLAUNDRY;
 
-import android.widget.EditText;
-
 public class UserProfile {
     public String username;
     public String useremail;
 
-    public UserProfile(EditText username, EditText userpass, EditText useremail){
-    }
 
     public UserProfile(String username, String useremail) {
         this.username = username;

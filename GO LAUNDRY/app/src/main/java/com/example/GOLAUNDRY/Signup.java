@@ -36,6 +36,7 @@ import java.io.IOException;
 public class Signup extends AppCompatActivity {
 
     private EditText username, userpass, useremail;
+    String name, email, password;
     public Button button;
     private FirebaseAuth firebaseAuth;
     private ImageView userProfilePic;
@@ -63,26 +64,24 @@ public class Signup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+        userProfilePic = (ImageView) findViewById(R.id.ivProfile);
         username = (EditText) findViewById(R.id.pt_username2);
         userpass = (EditText) findViewById(R.id.tv_pass2);
         useremail = (EditText) findViewById(R.id.pt_email);
 
         firebaseAuth=FirebaseAuth.getInstance();
         firebaseStorage = FirebaseStorage.getInstance();
-
-        StorageReference storageReference = firebaseStorage.getReference();
-        //storageReference myRefl = storageReference.child(firebaseAuth.getUid());
+        storageReference = firebaseStorage.getReference();
 
         userProfilePic.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent();
-                intent.setType("iamge/*");
+                intent.setType("image/*");
                 intent.setAction(Intent.ACTION_GET_CONTENT);
-                startActivityForResult(Intent.createChooser(intent, "select image"), PICK_IMAGE);
+                startActivityForResult(Intent.createChooser(intent, "Select image"), PICK_IMAGE);
             }
         });
-
 
         /////////////////////////////button link//////////////////////////////////////////////////
         button = (Button) findViewById(R.id.btn_signup2);
@@ -112,9 +111,9 @@ public class Signup extends AppCompatActivity {
     private Boolean validate(){
         Boolean result = false;
 
-        String name = username.getText().toString();
-        String password = userpass.getText().toString();
-        String email = useremail.getText().toString();
+        name = username.getText().toString();
+        password = userpass.getText().toString();
+        email = useremail.getText().toString();
 
         if(name.isEmpty() || password.isEmpty() || email.isEmpty()  || imagePath == null){
             Toast.makeText(this, "Please enter all the details", Toast.LENGTH_SHORT).show();
@@ -132,6 +131,7 @@ public class Signup extends AppCompatActivity {
                 @Override
                 public void onComplete(@NonNull Task<Void> task) {
                     if(task.isSuccessful()){
+                        sendUserData();
                         Toast.makeText(Signup.this,"Succesfully Registered, Vefification Has Been Sent!",Toast.LENGTH_SHORT).show();
                         firebaseAuth.signOut();
                         finish();
@@ -159,7 +159,7 @@ public class Signup extends AppCompatActivity {
                 Toast.makeText(Signup.this, "Upload successful", Toast.LENGTH_SHORT).show();
             }
         });
-        UserProfile UserProfile = new UserProfile (username, userpass, useremail);
+        UserProfile UserProfile = new UserProfile(name, email);
         myRef.setValue(UserProfile);
     }
 }

@@ -7,18 +7,6 @@
     android:background="#152238"
     tools:context=".UpdateProfile">
 
-    <ImageView
-        android:id="@+id/iv_profilePicUpdate"
-        android:layout_width="211dp"
-        android:layout_height="190dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.089"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
-
     <EditText
         android:id="@+id/pt_nameupdate"
         android:layout_width="250dp"
@@ -28,10 +16,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.492"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_profilePicUpdate"
-        app:layout_constraintVertical_bias="0.138" />
+        app:layout_constraintVertical_bias="0.169" />
 
     <EditText
         android:id="@+id/pt_emailupdate"
@@ -59,4 +47,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_emailupdate"
         app:layout_constraintVertical_bias="0.505" />
+
+    <ImageView
+        android:id="@+id/iv_profilePicUpdate"
+        android:layout_width="163dp"
+        android:layout_height="140dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.168"
+        app:srcCompat="@mipmap/photohere" />
 </androidx.constraintlayout.widget.ConstraintLayout>
