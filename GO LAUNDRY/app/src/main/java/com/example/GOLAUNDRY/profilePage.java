@@ -55,6 +55,8 @@ public class profilePage extends AppCompatActivity {
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,14 +101,14 @@ public class profilePage extends AppCompatActivity {
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 UserProfile userProfile = dataSnapshot.getValue(UserProfile.class);
                 profileName.setText("Name: " + userProfile.getUsername());
                 profileEmail.setText("Email: " + userProfile.getUseremail());
             }
 
             @Override
-            public void onCancelled( DatabaseError databaseError) {
+            public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(profilePage.this, databaseError.getCode(), Toast.LENGTH_SHORT).show();
             }
         });

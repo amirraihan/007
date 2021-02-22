@@ -4,6 +4,8 @@ public class UserProfile {
     public String username;
     public String useremail;
 
+    public UserProfile() {
+    }
 
     public UserProfile(String username, String useremail) {
         this.username = username;
