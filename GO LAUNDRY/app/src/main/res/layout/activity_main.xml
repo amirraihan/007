@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#152238"
+    android:background="@drawable/custom_bg"
     tools:context=".Login" >
 
     <EditText
@@ -60,7 +60,7 @@
         android:id="@+id/btn_login"
         android:layout_width="198dp"
         android:layout_height="40dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/custom_button2"
         android:text="LOGIN"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +73,7 @@
         android:id="@+id/btn_signup"
         android:layout_width="146dp"
         android:layout_height="36dp"
-        android:background="#152238"
+        android:background="@drawable/custom_button2"
         android:text="Signup Here"
         android:textColor="#FFFDFD"
         app:layout_constraintBottom_toBottomOf="parent"

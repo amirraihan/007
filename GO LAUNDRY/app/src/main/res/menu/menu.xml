@@ -2,24 +2,31 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-        <item
-        android:id="@+id/logoutMenu"
-        android:orderInCategory="100"
-        app:showAsAction="always"
-        android:title="logout">
-        </item>
+        <group android:checkableBehavior="single">
 
-        <item
-        android:id="@+id/ProfileMenu"
-        android:orderInCategory="200"
-        app:showAsAction="never"
-        android:title="Profile">
-        </item>
+                <item
+                    android:id="@+id/nav_home"
+                    android:icon="@drawable/home"
+                    android:title="Home" />
 
-        <item
-        android:id="@+id/refreshMenu"
-        android:orderInCategory="300"
-        app:showAsAction="never"
-        android:title="Refresh">
-        </item>
+                <item
+                    android:id="@+id/ProfileMenu"
+                    android:icon="@drawable/profileuser"
+                    android:title="Profile" />
+
+                <item
+                    android:id="@+id/nav_about"
+                    android:icon="@drawable/aboutus"
+                    android:title="About Us" />
+
+                <item
+                    android:id="@+id/nav_contact"
+                    android:icon="@drawable/headphone"
+                    android:title="Contact Us" />
+
+                <item
+                    android:id="@+id/logoutMenu"
+                    android:icon="@drawable/logout"
+                    android:title="Log out" />
+        </group>
 </menu>
