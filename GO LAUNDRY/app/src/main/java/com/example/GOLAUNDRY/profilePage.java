@@ -68,7 +68,7 @@ public class profilePage extends AppCompatActivity {
         profileUpdate = findViewById(R.id.btn_edit);
         changepassword = findViewById(R.id.btn_changepass);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      //  getSupportActionBar().setDisplayHomeAsUpEnabled(true); PUNCA
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
