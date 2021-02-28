@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_bg"
+    tools:context=".AboutUs">
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="225dp"
+        android:layout_height="223dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.116"
+        app:srcCompat="@mipmap/logo_laundry" />
+
+    <TextView
+        android:id="@+id/tv_desc"
+        android:layout_width="379dp"
+        android:layout_height="266dp"
+        android:fontFamily="sans-serif-light"
+        android:text="Laundry booking and delivery app is one of the most popular on-demand mobile apps that has been trending now, after the huge success of the on-demand food ordering apps and the grocery delivery app. Since laundry is one of the important and basic daily needs, hence a mobile app for the laundry booking and delivery is useful for the customers all over the world. With this increase in the popularity of the laundry app, many startups have been investing in the development of the laundry booking and delivery app"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        android:typeface="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView6"
+        app:layout_constraintVertical_bias="0.135" />
+</androidx.constraintlayout.widget.ConstraintLayout>
