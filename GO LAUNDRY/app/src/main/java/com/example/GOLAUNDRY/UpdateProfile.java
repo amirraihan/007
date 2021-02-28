@@ -67,7 +67,7 @@ public class UpdateProfile extends AppCompatActivity {
         save = findViewById(R.id.btn_save);
         updateProfilePic = findViewById(R.id.iv_profilePicUpdate);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();

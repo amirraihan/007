@@ -32,7 +32,7 @@ public class UpdatePassword extends AppCompatActivity {
         submit = findViewById(R.id.btn_submit);
         newpassword = findViewById(R.id.pt_changepass);
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
