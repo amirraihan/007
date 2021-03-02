@@ -99,9 +99,9 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
                 startActivity(new Intent(homepage.this, AboutUs.class));
                 break;
 
-            /**-case R.id.nav_contact:
+            case R.id.nav_contact:
                 startActivity(new Intent(homepage.this, ContactUs.class));
-                break;-*/
+                break;
 
             case R.id.logoutMenu: //logout punya part
                 startActivity(new Intent(homepage.this, Login.class));

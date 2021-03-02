@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".AboutUs"></activity>
+        <activity android:name=".ContactUs"></activity>
+        <activity android:name=".AboutUs" />
         <activity android:name=".UpdatePassword" />
         <activity android:name=".UpdateProfile" />
         <activity android:name=".profilePage" />

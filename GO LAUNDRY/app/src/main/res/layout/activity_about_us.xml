@@ -15,21 +15,54 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.116"
+        app:layout_constraintVertical_bias="0.078"
         app:srcCompat="@mipmap/logo_laundry" />
 
     <TextView
         android:id="@+id/tv_desc"
-        android:layout_width="379dp"
-        android:layout_height="266dp"
-        android:fontFamily="sans-serif-light"
-        android:text="Laundry booking and delivery app is one of the most popular on-demand mobile apps that has been trending now, after the huge success of the on-demand food ordering apps and the grocery delivery app. Since laundry is one of the important and basic daily needs, hence a mobile app for the laundry booking and delivery is useful for the customers all over the world. With this increase in the popularity of the laundry app, many startups have been investing in the development of the laundry booking and delivery app"
+        android:layout_width="324dp"
+        android:layout_height="131dp"
+        android:fontFamily="casual"
+        android:text="Laundry booking and delivery app is one of the  most popular on-demand mobile apps that has  been trending now, after the huge success  of the on-demand food ordering apps and  the grocery delivery app. "
+        android:textAlignment="center"
         android:textColor="#000000"
-        android:textSize="18sp"
+        android:textSize="14sp"
+        android:textStyle="italic"
         android:typeface="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView6"
         app:layout_constraintVertical_bias="0.135" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="327dp"
+        android:layout_height="166dp"
+        android:fontFamily="casual"
+        android:text="Since laundry is one of the important  and basic daily needs, hence a mobile  app for the laundry booking and delivery  is useful for the customers all over the world.  With this increase in the popularity of the laundry app,  many startups have been investing in the development  of the laundry booking and delivery app."
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textStyle="italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_desc"
+        app:layout_constraintVertical_bias="0.12" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="153dp"
+        android:layout_height="26dp"
+        android:fontFamily="casual"
+        android:text="Go Laundry V 1.1.1.0 ©"
+        android:textAlignment="center"
+        android:textColor="#070707"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.895"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintVertical_bias="0.84" />
 </androidx.constraintlayout.widget.ConstraintLayout>
