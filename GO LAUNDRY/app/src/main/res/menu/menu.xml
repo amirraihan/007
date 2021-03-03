@@ -6,22 +6,22 @@
 
                 <item
                     android:id="@+id/nav_home"
-                    android:icon="@drawable/home3"
+                    android:icon="@drawable/home2"
                     android:title="Home" />
 
                 <item
                     android:id="@+id/ProfileMenu"
-                    android:icon="@drawable/profileuser"
+                    android:icon="@drawable/username"
                     android:title="Profile" />
 
                 <item
                     android:id="@+id/nav_about"
-                    android:icon="@drawable/aboutus"
+                    android:icon="@drawable/information"
                     android:title="About Us" />
 
                 <item
                     android:id="@+id/nav_contact"
-                    android:icon="@drawable/headphone"
+                    android:icon="@drawable/phone"
                     android:title="Contact Us" />
 
                 <item

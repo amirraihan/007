@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ContactUs"></activity>
+        <activity android:name=".ConfirmationOrder"></activity>
+        <activity android:name=".BookingForm" />
+        <activity android:name=".ContactUs" />
         <activity android:name=".AboutUs" />
         <activity android:name=".UpdatePassword" />
         <activity android:name=".UpdateProfile" />

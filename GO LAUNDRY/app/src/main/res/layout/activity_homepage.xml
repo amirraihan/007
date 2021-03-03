@@ -9,6 +9,7 @@
     android:isScrollContainer="false"
     tools:context=".homepage"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:openDrawer="start">
 
     <com.google.android.material.navigation.NavigationView
@@ -80,12 +81,13 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView16">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_boy"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <ImageView
                 android:id="@+id/iv_new"
@@ -100,22 +102,25 @@
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp"
                 android:text="DOBI BOY" />
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_queen"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <TextView
                 android:id="@+id/tv_queen"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
+                android:textColor="@color/white"
                 android:layout_marginBottom="10dp"
                 android:text="DOBI QUEEN" />
 
@@ -142,14 +147,15 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView16">
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_bar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <ImageView
-                android:id="@+id/imageView13"
+                android:id="@+id/iv_laundrybar"
                 android:layout_width="75dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center_horizontal"
@@ -163,16 +169,18 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
                 android:text="LAUNDRY BAR" />
 
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
+            android:id="@+id/card_doc"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <ImageView
                 android:id="@+id/imageView14"
@@ -189,6 +197,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
                 android:text="LAUNDRY DOCTOR" />
 
         </androidx.cardview.widget.CardView>
@@ -212,7 +221,7 @@
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:background="#FFFFFF"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <ImageView
                 android:id="@+id/iv_yoru"
@@ -228,6 +237,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
                 android:text="DOBI BOY" />
         </androidx.cardview.widget.CardView>
 
@@ -236,7 +246,7 @@
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
-            app:cardBackgroundColor="#009688">
+            app:cardBackgroundColor="#004e92">
 
             <TextView
                 android:id="@+id/tv_jett"
@@ -244,6 +254,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|center_horizontal"
                 android:layout_marginBottom="10dp"
+                android:textColor="@color/white"
                 android:text="DOBI QUEEN" />
 
             <ImageView

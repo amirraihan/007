@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/custom_bg"
+    tools:context=".BookingForm">
+
+
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="185dp"
+        android:layout_height="34dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center|center_horizontal"
+        android:text="Booking Form"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <TextView
+        android:id="@+id/tv_detail"
+        android:layout_width="158dp"
+        android:layout_height="31dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="Fill In Your Detail "
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.036" />
+
+
+    <EditText
+        android:id="@+id/pt_nameform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/username"
+        android:ems="10"
+        android:hint="Full Name"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.205" />
+
+    <EditText
+
+        android:id="@+id/pt_phoneform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/phone"
+        android:ems="10"
+        android:hint="No. Phone"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.324" />
+
+    <EditText
+        android:id="@+id/pt_timeform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/clock"
+        android:ems="10"
+        android:hint="Time"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.459" />
+
+    <EditText
+        android:id="@+id/pt_Capacityform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/kg"
+        android:ems="10"
+        android:hint="Enter Your Capacity"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.578" />
+
+    <Button
+        android:id="@+id/btn_submitform"
+        android:layout_width="118dp"
+        android:layout_height="44dp"
+        android:background="@drawable/custom_button2"
+        android:text="Submit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
