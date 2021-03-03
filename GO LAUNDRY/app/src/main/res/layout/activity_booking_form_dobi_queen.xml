@@ -5,11 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/custom_bg"
-    tools:context=".BookingFormDobiBoy">
-
+    tools:context=".BookingFormDobiQueen">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_boy"
+        android:id="@+id/card_queen"
         android:layout_width="133dp"
         android:layout_height="127dp"
         android:layout_margin="10dp"
@@ -21,21 +20,21 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail">
 
         <TextView
-            android:id="@+id/tv_boy"
+            android:id="@+id/tv_queen"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="bottom|center_horizontal"
             android:layout_marginBottom="10dp"
-            android:text="DOBI BOY"
+            android:text="DOBI QUEEN"
             android:textColor="@color/white" />
 
         <ImageView
-            android:id="@+id/iv_new1"
+            android:id="@+id/iv_new2"
             android:layout_width="75dp"
             android:layout_height="75dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
-            app:srcCompat="@drawable/dobi1" />
+            app:srcCompat="@drawable/dobi2" />
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -82,35 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.324" />
-
-    <EditText
-        android:id="@+id/pt_Capacityform"
-        android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/kg"
-        android:ems="10"
-        android:hint="Enter Your Capacity"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.697" />
-
-    <EditText
-        android:id="@+id/pt_timeform"
-        android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/clock"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.385" />
 
     <EditText
 
@@ -125,7 +96,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.443" />
+        app:layout_constraintVertical_bias="0.504" />
+
+    <EditText
+        android:id="@+id/pt_Capacityform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/kg"
+        android:ems="10"
+        android:hint="Enter Your Capacity"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.758" />
+
+    <EditText
+        android:id="@+id/pt_timeform"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
+        android:drawableLeft="@drawable/clock"
+        android:ems="10"
+        android:hint="Time"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.639" />
 
     <Button
         android:id="@+id/btn_submitform"
@@ -138,7 +137,18 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform"
-        app:layout_constraintVertical_bias="0.29" />
+        app:layout_constraintVertical_bias="0.355" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="155dp"
+        android:layout_height="37dp"
+        android:gravity="center"
+        android:text="Dobi Queen"
+        app:layout_constraintBottom_toTopOf="@+id/pt_nameform"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

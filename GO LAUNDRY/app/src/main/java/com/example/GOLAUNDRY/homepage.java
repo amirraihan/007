@@ -10,10 +10,8 @@ import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.navigation.NavigationView;
 import com.google.firebase.auth.FirebaseAuth;
@@ -46,28 +44,28 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
         dobiBoy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homepage.this , BookingForm.class));
+                startActivity(new Intent(homepage.this , BookingFormDobiBoy.class));
             }
         });
 
         dobiQueen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homepage.this , BookingForm.class));
+                startActivity(new Intent(homepage.this , BookingFormDobiQueen.class));
             }
         });
 
         laundryBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homepage.this , BookingForm.class));
+                startActivity(new Intent(homepage.this , BookingFormLaundryBar.class));
             }
         });
 
         laundryDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(homepage.this , BookingForm.class));
+                startActivity(new Intent(homepage.this , BookingFormLaundryDoc.class));
             }
         });
 

@@ -12,8 +12,12 @@
         android:roundIcon="@mipmap/roundlogo"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".ConfirmationOrder"></activity>
-        <activity android:name=".BookingForm" />
+        <activity android:name=".Receipt"></activity>
+        <activity android:name=".BookingFormLaundryDoc" />
+        <activity android:name=".BookingFormLaundryBar" />
+        <activity android:name=".BookingFormDobiQueen" />
+        <activity android:name=".ConfirmationOrder" />
+        <activity android:name=".BookingFormDobiBoy" />
         <activity android:name=".ContactUs" />
         <activity android:name=".AboutUs" />
         <activity android:name=".UpdatePassword" />
