@@ -81,7 +81,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.385" />
+        app:layout_constraintVertical_bias="0.329" />
 
     <EditText
 
@@ -96,7 +96,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.504" />
+        app:layout_constraintVertical_bias="0.448" />
 
     <EditText
         android:id="@+id/pt_Capacityform"
@@ -110,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.758" />
+        app:layout_constraintVertical_bias="0.809" />
 
     <EditText
         android:id="@+id/pt_timeform"
@@ -122,9 +122,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.639" />
+        app:layout_constraintVertical_bias="0.679" />
 
     <Button
         android:id="@+id/btn_submitform"
@@ -137,7 +138,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform"
-        app:layout_constraintVertical_bias="0.355" />
+        app:layout_constraintVertical_bias="0.633" />
 
     <TextView
         android:id="@+id/textView8"
@@ -150,5 +151,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
 
+    <Button
+        android:id="@+id/datelaundrydoc"
+        style="?android:spinnerStyle"
+        android:layout_width="261dp"
+        android:layout_height="52dp"
+        android:layout_marginBottom="24dp"
+        android:drawableLeft="@drawable/calendar"
+        android:onClick="openDatePicker"
+        android:text="pick your date"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

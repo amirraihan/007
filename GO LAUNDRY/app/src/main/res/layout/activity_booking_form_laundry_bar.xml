@@ -93,9 +93,10 @@
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.564"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.688" />
 
     <EditText
         android:id="@+id/pt_Capacityform"
@@ -109,7 +110,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.697" />
+        app:layout_constraintVertical_bias="0.801" />
 
     <EditText
 
@@ -134,8 +135,10 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform" />
+        app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform"
+        app:layout_constraintVertical_bias="0.348" />
 
     <TextView
         android:id="@+id/textView10"
@@ -147,6 +150,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
+
+    <Button
+        android:id="@+id/datelaundrybar"
+        style="?android:spinnerStyle"
+        android:layout_width="261dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="13dp"
+        android:drawableLeft="@drawable/calendar"
+        android:onClick="openDatePicker"
+        android:text="pick your date"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
+        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
+        app:layout_constraintVertical_bias="0.333" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

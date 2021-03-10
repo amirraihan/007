@@ -95,7 +95,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.578" />
+        app:layout_constraintVertical_bias="0.664" />
 
     <EditText
         android:id="@+id/pt_Capacityform"
@@ -109,7 +109,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.697" />
+        app:layout_constraintVertical_bias="0.767" />
 
     <EditText
 
@@ -147,6 +147,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
+
+    <Button
+        style="?android:spinnerStyle"
+        android:id="@+id/datelaundrydoc"
+        android:layout_width="261dp"
+        android:layout_height="52dp"
+        android:layout_marginTop="13dp"
+        android:text="pick your date"
+        android:textColor="#000000"
+        android:textSize="20sp"
+        android:drawableLeft="@drawable/calendar"
+        app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
+        app:layout_constraintVertical_bias="0.111"
+        android:onClick="openDatePicker"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
