@@ -4,11 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
-public class ConfirmationOrder extends AppCompatActivity {
+public class ReceiptQueen extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_confirmation_order);
+        setContentView(R.layout.activity_receipt_queen);
     }
 }

@@ -7,11 +7,15 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -19,41 +23,68 @@ import java.util.Calendar;
 
 public class BookingFormDobiQueen extends AppCompatActivity {
 
-    EditText nameForm, phoneForm, timeForm, capacityForm;
+    String[] timepicker;
+    Spinner timeForm;
+    EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
-    DatePickerDialog datePickerDialog ;
+    DatePickerDialog datePickerDialog;
+    private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
     String name, phone, time, capacity, date;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_form_dobi_queen);
+        setContentView(R.layout.activity_booking_form);
 
         nameForm = findViewById(R.id.pt_nameform);
         phoneForm = findViewById(R.id.pt_phoneform);
-        date = dateButton.getEditableText().toString().trim();
-        timeForm = findViewById(R.id.pt_timeform);
         capacityForm = findViewById(R.id.pt_Capacityform);
         dateButton = findViewById(R.id.datedobiqueen);
+        timeForm = findViewById(R.id.spqueen);
         initDatePicker();
         dateButton.setText(getTodaysDate());
 
         submitForm = findViewById(R.id.btn_submitform);
 
+        timepicker = getResources().getStringArray(R.array.timepickerqueen_array);
+        timeForm = (Spinner) findViewById(R.id.spqueen);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_single_choice, timepicker);
+        timeForm.setAdapter(adapter);
+        timeForm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                firebaseDatabase = firebaseDatabase.getInstance();
+                timeForm.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
+
         submitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name, phone, date, time, capacity;
+                String name, phone, date, time, capacity ;
+                firebaseAuth = FirebaseAuth.getInstance();
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 name = nameForm.getEditableText().toString().trim();
-                storageReference = firebaseDatabase.getReference("Dobi Queen").child(name);
+                storageReference = firebaseDatabase.getReference("Dobi Queen").child(firebaseAuth.getUid());
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 phone = phoneForm.getEditableText().toString().trim();
-                date = dateButton.getEditableText().toString().trim();
-                time = timeForm.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                date = dateButton.getText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                time = timeForm.getSelectedItem().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 capacity = capacityForm.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 validate();
                 BookingDetail bookingDetail = new BookingDetail(name, phone, date, time, capacity);
                 storageReference.setValue(bookingDetail);
@@ -66,6 +97,7 @@ public class BookingFormDobiQueen extends AppCompatActivity {
 
 
     }
+
     private String getTodaysDate() {
 
         Calendar cal = Calendar.getInstance();
@@ -141,17 +173,17 @@ public class BookingFormDobiQueen extends AppCompatActivity {
 
         name = nameForm.getText().toString();
         phone = phoneForm.getText().toString();
-        time = timeForm.getText().toString();
+        time = timeForm.getSelectedItem().toString();
         capacity = capacityForm.getText().toString();
         date = dateButton.getText().toString();
 
-        if(name.isEmpty() || phone.isEmpty() || time.isEmpty() || capacity.isEmpty()){
+        if(name.isEmpty() || phone.isEmpty()  || time.isEmpty()  || capacity.isEmpty() || date.isEmpty()){
             Toast.makeText(this, "Please Enter All Detail !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormDobiQueen.this, BookingFormDobiBoy.class));
+            startActivity(new Intent(BookingFormDobiQueen.this, BookingFormDobiQueen.class));
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormDobiQueen.this, ConfirmationOrder.class));
+            startActivity(new Intent(BookingFormDobiQueen.this, ReceiptQueen.class));
         }
         return result;
     }

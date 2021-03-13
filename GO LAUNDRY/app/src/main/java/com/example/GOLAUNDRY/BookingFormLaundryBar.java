@@ -151,7 +151,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormLaundryBar.this, ConfirmationOrder.class));
+            startActivity(new Intent(BookingFormLaundryBar.this, Receipt.class));
         }
         return result;
     }

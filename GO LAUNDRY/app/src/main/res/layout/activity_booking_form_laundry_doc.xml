@@ -83,19 +83,19 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
         app:layout_constraintVertical_bias="0.324" />
 
-    <EditText
-        android:id="@+id/pt_timeform"
+    <Spinner
+
+        android:id="@+id/spboy"
         android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/clock"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="textPersonName"
+        android:layout_height="42dp"
+        android:layout_marginBottom="164dp"
+        android:drawSelectorOnTop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.486"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.664" />
+        app:layout_constraintTop_toBottomOf="@+id/datelaundrydoc"
+        app:layout_constraintVertical_bias="0.388" />
 
     <EditText
         android:id="@+id/pt_Capacityform"
@@ -149,22 +149,22 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail" />
 
     <Button
-        style="?android:spinnerStyle"
         android:id="@+id/datelaundrydoc"
-        android:layout_width="261dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="13dp"
+        style="?android:spinnerStyle"
+        android:layout_width="266dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="8dp"
+        android:drawableLeft="@drawable/calendar"
+        android:onClick="openDatePicker"
         android:text="pick your date"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:drawableLeft="@drawable/calendar"
         app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
-        app:layout_constraintVertical_bias="0.111"
-        android:onClick="openDatePicker"/>
+        app:layout_constraintVertical_bias="0.111" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

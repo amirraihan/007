@@ -35,6 +35,7 @@
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="15dp"
             app:srcCompat="@drawable/dobi2" />
+
     </androidx.cardview.widget.CardView>
 
     <TextView
@@ -112,20 +113,17 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
         app:layout_constraintVertical_bias="0.809" />
 
-    <EditText
-        android:id="@+id/pt_timeform"
-        android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/clock"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="textPersonName"
+    <Spinner
+
+        android:id="@+id/spqueen"
+        android:layout_width="274dp"
+        android:layout_height="44dp"
+        android:drawSelectorOnTop="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.679" />
+        app:layout_constraintTop_toBottomOf="@+id/datedobiqueen"
+        app:layout_constraintVertical_bias="0.107" />
 
     <Button
         android:id="@+id/btn_submitform"
@@ -154,17 +152,17 @@
     <Button
         android:id="@+id/datedobiqueen"
         style="?android:spinnerStyle"
-        android:layout_width="261dp"
-        android:layout_height="52dp"
-        android:layout_marginBottom="24dp"
+        android:layout_width="271dp"
+        android:layout_height="49dp"
         android:drawableLeft="@drawable/calendar"
         android:onClick="openDatePicker"
         android:text="pick your date"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
-        app:layout_constraintHorizontal_bias="0.466"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
+        app:layout_constraintVertical_bias="0.062" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

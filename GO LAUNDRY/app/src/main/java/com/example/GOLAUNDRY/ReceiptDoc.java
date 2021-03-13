@@ -17,7 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-public class Receipt extends AppCompatActivity {
+public class ReceiptDoc extends AppCompatActivity {
 
     TextView nameRc, timeRc, dateRc, capacityRc;
     Button goHome;
@@ -27,7 +27,7 @@ public class Receipt extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_receipt);
+        setContentView(R.layout.activity_receipt_doc);
 
         nameRc = findViewById(R.id.tv_nameReceipt);
         timeRc = findViewById(R.id.tv_timeReceipt);
@@ -38,7 +38,7 @@ public class Receipt extends AppCompatActivity {
         goHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Receipt.this, homepage.class );
+                Intent intent = new Intent(ReceiptDoc.this, homepage.class );
                 startActivity(intent);
             }
         });
@@ -46,7 +46,7 @@ public class Receipt extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
 
-        DatabaseReference databaseReference = firebaseDatabase.getReference("Dobi Boy").child(firebaseAuth.getUid());
+        DatabaseReference databaseReference = firebaseDatabase.getReference("Laundry Doc").child(firebaseAuth.getUid());
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -59,8 +59,8 @@ public class Receipt extends AppCompatActivity {
             }
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(Receipt.this, error.getCode(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(ReceiptDoc.this, error.getCode(), Toast.LENGTH_SHORT).show();
             }
         });
     }
-    }
+}

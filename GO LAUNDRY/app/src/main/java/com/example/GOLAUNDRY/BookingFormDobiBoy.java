@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -32,6 +33,7 @@ public class BookingFormDobiBoy extends AppCompatActivity {
     EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
+    private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
     String name, phone, time, capacity, date;
@@ -75,9 +77,10 @@ public class BookingFormDobiBoy extends AppCompatActivity {
             public void onClick(View v) {
 
                 String name, phone, date, time, capacity ;
+                firebaseAuth = FirebaseAuth.getInstance();
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 name = nameForm.getEditableText().toString().trim();
-                storageReference = firebaseDatabase.getReference("Dobi Boy").child(name);
+                storageReference = firebaseDatabase.getReference("Dobi Boy").child(firebaseAuth.getUid());
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 phone = phoneForm.getEditableText().toString().trim();
                 firebaseDatabase = FirebaseDatabase.getInstance();
@@ -185,7 +188,7 @@ public class BookingFormDobiBoy extends AppCompatActivity {
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormDobiBoy.this, ConfirmationOrder.class));
+            startActivity(new Intent(BookingFormDobiBoy.this, Receipt.class));
         }
         return result;
     }
