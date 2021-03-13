@@ -2,15 +2,16 @@ package com.example.GOLAUNDRY;
 
 public class BookingDetail {
 
-    String name, phone, time, capacity;
+    String name, phone, date, time, capacity;
 
     public BookingDetail(){
 
     }
 
-    public BookingDetail(String name, String phone, String time, String capacity){
+    public BookingDetail(String name, String phone, String date, String time, String capacity){
         this.name = name;
         this.phone = phone;
+        this.date = date;
         this.time = time;
         this.capacity = capacity;
     }
@@ -43,6 +44,13 @@ public class BookingDetail {
         return capacity;
     }
 
-    public void setCapacity(String capacity) {this.capacity = capacity;
+    public void setCapacity(String capacity) {this.capacity = capacity;}
+
+        public String getDate() {
+            return date;
+        }
+    public void setDate(String date) {
+        this.date = date;
     }
+
 }

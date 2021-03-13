@@ -4,27 +4,37 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.TimeZone;
 
 public class BookingFormDobiBoy extends AppCompatActivity {
 
-    EditText nameForm, phoneForm, timeForm, capacityForm;
+    String[] timepicker;
+    Spinner timeForm;
+    EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
-    String name, phone, time, capacity;
+    String name, phone, time, capacity, date;
 
 
     @Override
@@ -34,27 +44,51 @@ public class BookingFormDobiBoy extends AppCompatActivity {
 
         nameForm = findViewById(R.id.pt_nameform);
         phoneForm = findViewById(R.id.pt_phoneform);
-        timeForm = findViewById(R.id.pt_timeform);
         capacityForm = findViewById(R.id.pt_Capacityform);
-        dateButton = findViewById(R.id.datelaundrydoc);
+        dateButton = findViewById(R.id.datedobiboy);
+        timeForm = findViewById(R.id.spboy);
         initDatePicker();
         dateButton.setText(getTodaysDate());
 
         submitForm = findViewById(R.id.btn_submitform);
 
+        timepicker = getResources().getStringArray(R.array.timepicker_array);
+        timeForm = (Spinner) findViewById(R.id.spboy);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_single_choice, timepicker);
+        timeForm.setAdapter(adapter);
+        timeForm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                firebaseDatabase = firebaseDatabase.getInstance();
+                timeForm.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
+
         submitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name, phone, time, capacity;
+                String name, phone, date, time, capacity ;
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 name = nameForm.getEditableText().toString().trim();
                 storageReference = firebaseDatabase.getReference("Dobi Boy").child(name);
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 phone = phoneForm.getEditableText().toString().trim();
-                time = timeForm.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                date = dateButton.getText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                time = timeForm.getSelectedItem().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 capacity = capacityForm.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 validate();
-                BookingDetail bookingDetail = new BookingDetail(name, phone, time, capacity);
+                BookingDetail bookingDetail = new BookingDetail(name, phone, date, time, capacity);
                 storageReference.setValue(bookingDetail);
 
 
@@ -141,10 +175,11 @@ public class BookingFormDobiBoy extends AppCompatActivity {
 
         name = nameForm.getText().toString();
         phone = phoneForm.getText().toString();
-        time = timeForm.getText().toString();
+        time = timeForm.getSelectedItem().toString();
         capacity = capacityForm.getText().toString();
+        date = dateButton.getText().toString();
 
-        if(name.isEmpty() || phone.isEmpty() || time.isEmpty() || capacity.isEmpty()){
+        if(name.isEmpty() || phone.isEmpty()  || time.isEmpty()  || capacity.isEmpty() || date.isEmpty()){
             Toast.makeText(this, "Please Enter All Detail !", Toast.LENGTH_SHORT).show();
             startActivity(new Intent(BookingFormDobiBoy.this, BookingFormDobiBoy.class));
         }else{

@@ -24,8 +24,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
     DatePickerDialog datePickerDialog;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
-    String name, phone, time, capacity;
-
+    String name, phone, time, capacity, date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,15 +45,16 @@ public class BookingFormLaundryBar extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                String name, phone, time, capacity;
+                String name, phone, date, time, capacity;
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 name = nameForm.getEditableText().toString().trim();
                 storageReference = firebaseDatabase.getReference("Laundry Bar").child(name);
                 phone = phoneForm.getEditableText().toString().trim();
+                date = dateButton.getEditableText().toString().trim();
                 time = timeForm.getEditableText().toString().trim();
                 capacity = capacityForm.getEditableText().toString().trim();
                 validate();
-                BookingDetail bookingDetail = new BookingDetail(name, phone, time, capacity);
+                BookingDetail bookingDetail = new BookingDetail(name, phone, date, time, capacity);
                 storageReference.setValue(bookingDetail);
 
 
@@ -143,6 +143,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
         phone = phoneForm.getText().toString();
         time = timeForm.getText().toString();
         capacity = capacityForm.getText().toString();
+        date = dateButton.getText().toString();
 
         if(name.isEmpty() || phone.isEmpty() || time.isEmpty() || capacity.isEmpty()){
             Toast.makeText(this, "Please Enter All Detail !", Toast.LENGTH_SHORT).show();

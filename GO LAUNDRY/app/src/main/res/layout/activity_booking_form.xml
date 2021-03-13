@@ -18,7 +18,8 @@
         app:layout_constraintBottom_toTopOf="@+id/pt_nameform"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail">
+        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
+        app:layout_constraintVertical_bias="0.186">
 
         <TextView
             android:id="@+id/tv_boy"
@@ -51,7 +52,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.057" />
+        app:layout_constraintVertical_bias="0.044" />
+
 
     <TextView
         android:id="@+id/tv_detail"
@@ -67,7 +69,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.015" />
 
 
     <EditText
@@ -82,12 +84,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.324" />
+        app:layout_constraintVertical_bias="0.273" />
 
     <EditText
         android:id="@+id/pt_Capacityform"
         android:layout_width="271dp"
         android:layout_height="49dp"
+        android:layout_marginTop="13dp"
         android:drawableLeft="@drawable/kg"
         android:ems="10"
         android:hint="Enter Your Capacity"
@@ -95,28 +98,15 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.792" />
-
-    <EditText
-        android:id="@+id/pt_timeform"
-        android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/clock"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.69" />
+        app:layout_constraintTop_toBottomOf="@+id/spboy"
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
 
         android:id="@+id/pt_phoneform"
         android:layout_width="271dp"
         android:layout_height="49dp"
+        android:layout_marginTop="13dp"
         android:drawableLeft="@drawable/phone"
         android:ems="10"
         android:hint="No. Phone"
@@ -124,10 +114,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.443" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/pt_nameform"
+        app:layout_constraintVertical_bias="0.008" />
 
     <Button
         android:id="@+id/btn_submitform"
@@ -137,28 +125,41 @@
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.43"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_Capacityform"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintVertical_bias="0.35" />
 
     <Button
+        android:id="@+id/datedobiboy"
         style="?android:spinnerStyle"
-        android:id="@+id/datelaundrydoc"
         android:layout_width="261dp"
         android:layout_height="52dp"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="17dp"
+        android:drawableLeft="@drawable/calendar"
+        android:onClick="openDatePicker"
         android:text="pick your date"
         android:textColor="#000000"
         android:textSize="20sp"
-        android:drawableLeft="@drawable/calendar"
-        app:layout_constraintBottom_toTopOf="@+id/pt_timeform"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.533"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
-        app:layout_constraintVertical_bias="0.111"
-        android:onClick="openDatePicker"/>
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Spinner
+
+        android:id="@+id/spboy"
+        android:layout_width="267dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:drawSelectorOnTop="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datedobiboy"
+        app:layout_constraintVertical_bias="0.025" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

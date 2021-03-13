@@ -9,8 +9,8 @@
 
     <EditText
         android:id="@+id/pt_email1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="314dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="136dp"
         android:drawableLeft="@drawable/ic_action_username"
         android:ems="10"
@@ -21,10 +21,10 @@
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintVertical_bias="0.089" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -40,10 +40,10 @@
 
     <EditText
         android:id="@+id/tv_pass"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
+        android:layout_width="311dp"
+        android:layout_height="48dp"
         android:drawableLeft="@drawable/ic_action_lock"
+        android:ems="10"
         android:hint="Password"
         android:inputType="textPassword"
         android:textColor="#FFFCFC"
@@ -51,7 +51,6 @@
         android:textColorHint="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_email1"
         app:layout_constraintVertical_bias="0.049" />
@@ -65,9 +64,10 @@
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_pass"
-        app:layout_constraintVertical_bias="0.261" />
+        app:layout_constraintVertical_bias="0.296" />
 
     <Button
         android:id="@+id/btn_signup"
