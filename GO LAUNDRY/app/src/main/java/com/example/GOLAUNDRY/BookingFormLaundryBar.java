@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
@@ -19,7 +20,9 @@ import java.util.Calendar;
 
 public class BookingFormLaundryBar extends AppCompatActivity {
 
-    EditText nameForm, phoneForm, timeForm, capacityForm;
+    String[] timepicker;
+    Spinner timeForm;
+    EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
     private FirebaseDatabase firebaseDatabase;
@@ -33,11 +36,16 @@ public class BookingFormLaundryBar extends AppCompatActivity {
 
         nameForm = findViewById(R.id.pt_nameform);
         phoneForm = findViewById(R.id.pt_phoneform);
-        timeForm = findViewById(R.id.pt_timeform);
         capacityForm = findViewById(R.id.pt_Capacityform);
         dateButton = findViewById(R.id.datelaundrybar);
+        timeForm = findViewById(R.id.spboy);
         initDatePicker();
         dateButton.setText(getTodaysDate());
+
+        submitForm = findViewById(R.id.btn_submitform);
+
+        timepicker = getResources().getStringArray(R.array.timepicker_array);
+        timeForm = (Spinner) findViewById(R.id.spboy);
 
         submitForm = findViewById(R.id.btn_submitform);
 
@@ -51,7 +59,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
                 storageReference = firebaseDatabase.getReference("Laundry Bar").child(name);
                 phone = phoneForm.getEditableText().toString().trim();
                 date = dateButton.getEditableText().toString().trim();
-                time = timeForm.getEditableText().toString().trim();
+                time = timeForm.getSelectedItem().toString().trim();
                 capacity = capacityForm.getEditableText().toString().trim();
                 validate();
                 BookingDetail bookingDetail = new BookingDetail(name, phone, date, time, capacity);
@@ -141,13 +149,13 @@ public class BookingFormLaundryBar extends AppCompatActivity {
 
         name = nameForm.getText().toString();
         phone = phoneForm.getText().toString();
-        time = timeForm.getText().toString();
+        time = timeForm.getSelectedItem().toString();
         capacity = capacityForm.getText().toString();
         date = dateButton.getText().toString();
 
         if(name.isEmpty() || phone.isEmpty() || time.isEmpty() || capacity.isEmpty()){
             Toast.makeText(this, "Please Enter All Detail !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormLaundryBar.this, BookingFormDobiBoy.class));
+            startActivity(new Intent(BookingFormLaundryBar.this, BookingFormLaundryBar.class));
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();

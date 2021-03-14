@@ -83,20 +83,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_detail"
         app:layout_constraintVertical_bias="0.324" />
 
-    <EditText
-        android:id="@+id/pt_timeform"
-        android:layout_width="271dp"
-        android:layout_height="49dp"
-        android:drawableLeft="@drawable/clock"
-        android:ems="10"
-        android:hint="Time"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.564"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_detail"
-        app:layout_constraintVertical_bias="0.688" />
+
 
     <EditText
         android:id="@+id/pt_Capacityform"
@@ -168,6 +155,18 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/pt_phoneform"
         app:layout_constraintVertical_bias="0.333" />
+    <Spinner
+
+        android:id="@+id/spboy"
+        android:layout_width="267dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="6dp"
+        android:drawSelectorOnTop="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/datelaundrybar"
+        app:layout_constraintVertical_bias="0.025" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

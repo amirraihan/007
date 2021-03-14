@@ -5,5 +5,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".ReceiptBar">
+    <TextView
+        android:id="@+id/tv_nameReceipt"
+        android:layout_width="308dp"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/username"
+        android:gravity="center|start"
+        android:hint="Name"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.373" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.104"
+        app:srcCompat="@drawable/logo_laundry" />
+
+    <TextView
+        android:id="@+id/tv_timeReceipt"
+        android:layout_width="308dp"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/clock"
+        android:gravity="center|start"
+        android:hint="Time"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_nameReceipt"
+        app:layout_constraintVertical_bias="0.038" />
+
+    <TextView
+        android:id="@+id/tv_dateReceipt"
+        android:layout_width="308dp"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/calendar"
+        android:gravity="center|start"
+        android:hint="Date"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_timeReceipt"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <TextView
+        android:id="@+id/tv_capacityReceipt"
+        android:layout_width="308dp"
+        android:layout_height="43dp"
+        android:drawableLeft="@drawable/kg"
+        android:gravity="center|start"
+        android:hint="Capacity"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.388"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_dateReceipt"
+        app:layout_constraintVertical_bias="0.062" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="220dp"
+        android:layout_height="40dp"
+        android:fontFamily="@font/acme"
+        android:gravity="center"
+        android:text="Receipt"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.354" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="70dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9"
+        app:layout_constraintVertical_bias="0.079"
+        app:srcCompat="@drawable/check" />
+
+    <Button
+        android:id="@+id/btn_goHome"
+        android:layout_width="98dp"
+        android:layout_height="32dp"
+        android:background="@drawable/custom_button2"
+        android:text="Home"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.048"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

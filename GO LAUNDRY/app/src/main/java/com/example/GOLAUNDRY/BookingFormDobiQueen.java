@@ -43,13 +43,13 @@ public class BookingFormDobiQueen extends AppCompatActivity {
         phoneForm = findViewById(R.id.pt_phoneform);
         capacityForm = findViewById(R.id.pt_Capacityform);
         dateButton = findViewById(R.id.datedobiqueen);
-        timeForm = findViewById(R.id.spqueen);
+        timeForm = findViewById(R.id.spboy);
         initDatePicker();
         dateButton.setText(getTodaysDate());
 
         submitForm = findViewById(R.id.btn_submitform);
 
-        timepicker = getResources().getStringArray(R.array.timepickerqueen_array);
+        timepicker = getResources().getStringArray(R.array.timepicker_array);
         timeForm = (Spinner) findViewById(R.id.spqueen);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_single_choice, timepicker);

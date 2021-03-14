@@ -21,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.Calendar;
 
-public class BookingFormLaundryDoc extends AppCompatActivity {
+public class    BookingFormLaundryDoc extends AppCompatActivity {
 
     String[] timepicker;
     Spinner timeForm;
