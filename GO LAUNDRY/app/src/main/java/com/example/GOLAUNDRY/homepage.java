@@ -122,6 +122,8 @@ public class homepage extends AppCompatActivity implements NavigationView.OnNavi
                 break;
 
             case R.id.logoutMenu: //logout punya part
+                firebaseAuth.signOut();         //MISS SYIRA TAMBAH
+                finish();                       //MISS SYIRA TAMBAH
                 startActivity(new Intent(homepage.this, Login.class));
                 break;
 

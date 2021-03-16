@@ -35,6 +35,21 @@ public class Login extends AppCompatActivity {
         ForgotPassword = (TextView)findViewById(R.id.tv_forgotpass);
 
         firebaseAuth=FirebaseAuth.getInstance();
+
+
+        //AUTO-LOGIN FUNCTION - MISS SYIRA YG TAMBAH
+
+        FirebaseUser user = firebaseAuth.getCurrentUser();
+
+        if(user != null){
+            finish();
+            startActivity(new Intent(Login.this, homepage.class));
+        }
+
+        //-------------------------------------------------------------------------
+
+
+
         /////////////////////////////button link//////////////////////////////////////////////////
         button_signup = (Button) findViewById(R.id.btn_signup);
         button_signup.setOnClickListener(new View.OnClickListener() {
@@ -57,8 +72,8 @@ public class Login extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()) {
-                                //Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 checkEmailVerification();
+                                Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_SHORT).show();      //MISS SYIRA TAMBAH
                             } else {
                                 Toast.makeText(Login.this, "Login Failed", Toast.LENGTH_SHORT).show();
                             }
@@ -94,14 +109,14 @@ public class Login extends AppCompatActivity {
         FirebaseUser firebaseUser = firebaseAuth.getInstance().getCurrentUser();
         Boolean emailflag = firebaseUser.isEmailVerified();
 
-        startActivity(new Intent(Login.this,homepage.class));
+        //startActivity(new Intent(Login.this,homepage.class));             //MISS SYIRA TUTUP CODING NI
 
- //       if (emailflag){
- //           finish();
- //           startActivity(new Intent(Login.this,homepage.class));
- //       }else{
-//            Toast.makeText(this,"Verify Email",Toast.LENGTH_SHORT).show();
-  //         firebaseAuth.signOut();
-     //   }
+        if (emailflag){                                                                       //MISS SYIRA ENABLE CODING NI
+            finish();                                                                         //MISS SYIRA ENABLE CODING NI
+            startActivity(new Intent(Login.this,homepage.class));               //MISS SYIRA ENABLE CODING NI
+        }else{                                                                                 //MISS SYIRA ENABLE CODING NI
+            Toast.makeText(this,"Verify Email",Toast.LENGTH_SHORT).show();      //MISS SYIRA ENABLE CODING NI
+            firebaseAuth.signOut();                                                          //MISS SYIRA ENABLE CODING NI
+        }
     }
 }
