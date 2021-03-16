@@ -37,7 +37,8 @@ public class    BookingFormLaundryDoc extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_booking_form);
+        //setContentView(R.layout.activity_booking_form);                   //CODE NIY SALAH
+        setContentView(R.layout.activity_booking_form_laundry_doc);
 
         nameForm = findViewById(R.id.pt_nameform);
         phoneForm = findViewById(R.id.pt_phoneform);
@@ -52,7 +53,7 @@ public class    BookingFormLaundryDoc extends AppCompatActivity {
         timepicker = getResources().getStringArray(R.array.timepicker_array);
         timeForm = (Spinner) findViewById(R.id.spboy);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_list_item_single_choice, timepicker);
+                android.R.layout.simple_list_item_1, timepicker);                           //tukar jadi simple_list_item_1
         timeForm.setAdapter(adapter);
         timeForm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

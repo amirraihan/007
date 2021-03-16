@@ -7,6 +7,8 @@ import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -46,6 +48,35 @@ public class BookingFormLaundryBar extends AppCompatActivity {
 
         timepicker = getResources().getStringArray(R.array.timepicker_array);
         timeForm = (Spinner) findViewById(R.id.spboy);
+
+        //----- CODING NIY KORANG TAK LETAK SEBAB TU TAK ADA TIME ARRAY TU
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+                android.R.layout.simple_list_item_1, timepicker);                           //tukar jadi simple_list_item_1
+        timeForm.setAdapter(adapter);
+        timeForm.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+                firebaseDatabase = firebaseDatabase.getInstance();
+                timeForm.getSelectedItem().toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
+
+
+        //-----------------------------------
+
+
+
+
+
+
+
+
+
 
         submitForm = findViewById(R.id.btn_submitform);
 
