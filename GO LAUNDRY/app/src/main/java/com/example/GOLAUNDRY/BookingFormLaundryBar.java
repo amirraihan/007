@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,6 +28,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
     EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
+    private FirebaseAuth firebaseAuth;                  //TAK ADA CODING NIY SEBELUM NI
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
     String name, phone, time, capacity, date;
@@ -70,28 +72,28 @@ public class BookingFormLaundryBar extends AppCompatActivity {
         //-----------------------------------
 
 
-
-
-
-
-
-
-
-
         submitForm = findViewById(R.id.btn_submitform);
 
+
+        //----------------------CODING KORANG SALAH SEMUA DALAM NI
         submitForm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String name, phone, date, time, capacity;
+                String name, phone, date, time, capacity ;
+                firebaseAuth = FirebaseAuth.getInstance();
                 firebaseDatabase = FirebaseDatabase.getInstance();
                 name = nameForm.getEditableText().toString().trim();
-                storageReference = firebaseDatabase.getReference("Laundry Bar").child(name);
+                storageReference = firebaseDatabase.getReference("Laundry Bar").child(firebaseAuth.getUid());
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 phone = phoneForm.getEditableText().toString().trim();
-                date = dateButton.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
+                date = dateButton.getText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 time = timeForm.getSelectedItem().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 capacity = capacityForm.getEditableText().toString().trim();
+                firebaseDatabase = FirebaseDatabase.getInstance();
                 validate();
                 BookingDetail bookingDetail = new BookingDetail(name, phone, date, time, capacity);
                 storageReference.setValue(bookingDetail);
@@ -101,6 +103,8 @@ public class BookingFormLaundryBar extends AppCompatActivity {
             }
 
         });
+
+        //------------------------------------------------------------------------
 
 
     }
@@ -190,7 +194,7 @@ public class BookingFormLaundryBar extends AppCompatActivity {
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormLaundryBar.this, Receipt.class));
+            startActivity(new Intent(BookingFormLaundryBar.this, ReceiptBar.class));
         }
         return result;
     }

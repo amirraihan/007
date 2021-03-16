@@ -184,7 +184,7 @@ public class    BookingFormLaundryDoc extends AppCompatActivity {
         }else{
             result = true;
             Toast.makeText(this, "Booking Submitted !", Toast.LENGTH_SHORT).show();
-            startActivity(new Intent(BookingFormLaundryDoc.this, Receipt.class));
+            startActivity(new Intent(BookingFormLaundryDoc.this, ReceiptDoc.class));
         }
         return result;
     }
