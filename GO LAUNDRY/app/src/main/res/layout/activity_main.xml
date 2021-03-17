@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/pt_email1"
-        android:layout_width="314dp"
+        android:layout_width="300dp"
         android:layout_height="43dp"
         android:layout_marginBottom="136dp"
         android:drawableLeft="@drawable/ic_action_username"
@@ -40,7 +40,7 @@
 
     <EditText
         android:id="@+id/tv_pass"
-        android:layout_width="311dp"
+        android:layout_width="300dp"
         android:layout_height="48dp"
         android:drawableLeft="@drawable/ic_action_lock"
         android:ems="10"
@@ -71,8 +71,8 @@
 
     <Button
         android:id="@+id/btn_signup"
-        android:layout_width="146dp"
-        android:layout_height="36dp"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button2"
         android:text="Signup Here"
         android:textColor="#FFFDFD"

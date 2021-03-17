@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/textView6"
-        android:layout_width="185dp"
-        android:layout_height="34dp"
+        android:layout_width="181dp"
+        android:layout_height="35dp"
         android:fontFamily="@font/acme"
         android:gravity="center|center_horizontal"
         android:text="Booking Form"
@@ -140,8 +140,8 @@
         android:drawableLeft="@drawable/calendar"
         android:onClick="openDatePicker"
         android:text="pick your date"
-        android:textColor="#000000"
-        android:textSize="20sp"
+        android:textColor="#75000000"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.533"
@@ -161,6 +161,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/datedobiboy"
         app:layout_constraintVertical_bias="0.025" />
+
+    <ImageView
+        android:id="@+id/iv_backHomeBoy"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/backarrow" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

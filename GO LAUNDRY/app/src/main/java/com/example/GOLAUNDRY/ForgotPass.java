@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -19,6 +20,7 @@ public class ForgotPass extends AppCompatActivity {
     private EditText passwordEmail;
     private Button resetPassword;
     private FirebaseAuth firebaseAuth;
+    ImageView backForgotpass;
 
 
     @Override
@@ -29,6 +31,16 @@ public class ForgotPass extends AppCompatActivity {
         passwordEmail = (EditText)findViewById(R.id.pt_email2);
         resetPassword = (Button)findViewById(R.id.btn_reset);
         firebaseAuth = FirebaseAuth.getInstance();
+
+        backForgotpass = findViewById(R.id.iv_backForgotPass);
+
+        backForgotpass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ForgotPass.this, Login.class );
+                startActivity(intent);
+            }
+        });
 
         resetPassword.setOnClickListener(new View.OnClickListener() {
             @Override

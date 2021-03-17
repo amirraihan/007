@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class    BookingFormLaundryDoc extends AppCompatActivity {
     EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
+    ImageView backHomeDoc;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
@@ -45,10 +47,19 @@ public class    BookingFormLaundryDoc extends AppCompatActivity {
         capacityForm = findViewById(R.id.pt_Capacityform);
         dateButton = findViewById(R.id.datelaundrydoc);
         timeForm = findViewById(R.id.spboy);
+        backHomeDoc = findViewById(R.id.iv_backHomeDoc);
         initDatePicker();
         dateButton.setText(getTodaysDate());
 
         submitForm = findViewById(R.id.btn_submitform);
+
+        backHomeDoc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BookingFormLaundryDoc.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         timepicker = getResources().getStringArray(R.array.timepicker_array);
         timeForm = (Spinner) findViewById(R.id.spboy);

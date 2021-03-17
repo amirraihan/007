@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,7 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 public class ReceiptDoc extends AppCompatActivity {
 
     TextView nameRc, timeRc, dateRc, capacityRc;
-    Button goHome;
+    ImageView backReceiptDoc;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
 
@@ -33,12 +34,12 @@ public class ReceiptDoc extends AppCompatActivity {
         timeRc = findViewById(R.id.tv_timeReceipt);
         dateRc = findViewById(R.id.tv_dateReceipt);
         capacityRc = findViewById(R.id.tv_capacityReceipt);
-        goHome = findViewById(R.id.btn_goHome);
+        backReceiptDoc = findViewById(R.id.iv_backReceiptDoc);
 
-        goHome.setOnClickListener(new View.OnClickListener() {
+        backReceiptDoc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ReceiptDoc.this, homepage.class );
+                Intent intent = new Intent(ReceiptDoc.this, BookingFormLaundryDoc.class );
                 startActivity(intent);
             }
         });

@@ -35,6 +35,7 @@ public class profilePage extends AppCompatActivity {
     private ImageView profilePic;
     private TextView profileName, profileEmail;
     private Button profileUpdate, changepassword;
+    ImageView backProfile;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
@@ -67,8 +68,17 @@ public class profilePage extends AppCompatActivity {
         profileEmail = findViewById(R.id.tv_Email);
         profileUpdate = findViewById(R.id.btn_edit);
         changepassword = findViewById(R.id.btn_changepass);
+        backProfile = findViewById(R.id.iv_backProfile);
 
       //  getSupportActionBar().setDisplayHomeAsUpEnabled(true); PUNCA
+
+        backProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(profilePage.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();

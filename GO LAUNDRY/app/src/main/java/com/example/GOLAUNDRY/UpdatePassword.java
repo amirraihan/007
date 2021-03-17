@@ -3,11 +3,13 @@ package com.example.GOLAUNDRY;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +24,7 @@ public class UpdatePassword extends AppCompatActivity {
     private EditText newpassword;
     private FirebaseUser firebaseUser;
     private  FirebaseAuth firebaseAuth;
+    ImageView backPass;
 
 
     @Override
@@ -31,8 +34,17 @@ public class UpdatePassword extends AppCompatActivity {
 
         submit = findViewById(R.id.btn_submit);
         newpassword = findViewById(R.id.pt_changepass);
+        backPass = findViewById(R.id.iv_backPass);
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        backPass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdatePassword.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
@@ -40,7 +52,7 @@ public class UpdatePassword extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String userpasswordNew =newpassword.getText().toString();
+                String userpasswordNew = newpassword.getText().toString();
 
                 firebaseUser.updatePassword(userpasswordNew).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

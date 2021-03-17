@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/pt_username2"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_action_username"
         android:ems="10"
@@ -26,10 +26,10 @@
 
     <EditText
         android:id="@+id/pt_email"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
-        android:ems="10"
         android:drawableLeft="@drawable/ic_action_email"
+        android:ems="10"
         android:hint="Email"
         android:inputType="textPersonName"
         android:textColor="#FFFFFF"
@@ -43,7 +43,7 @@
 
     <EditText
         android:id="@+id/tv_pass2"
-        android:layout_width="wrap_content"
+        android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:drawableLeft="@drawable/ic_action_lock"
         android:ems="10"
@@ -59,8 +59,8 @@
 
     <Button
         android:id="@+id/btn_signup2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button"
         android:text="SIGN UP"
         android:textColor="#FFFFFF"

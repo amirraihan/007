@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ public class BookingFormDobiQueen extends AppCompatActivity {
     EditText nameForm, phoneForm, capacityForm;
     Button submitForm, dateButton;
     DatePickerDialog datePickerDialog;
+    ImageView backHomeQueen;
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private DatabaseReference storageReference;
@@ -46,10 +48,19 @@ public class BookingFormDobiQueen extends AppCompatActivity {
         dateButton = findViewById(R.id.datedobiqueen);
         //timeForm = findViewById(R.id.spboy);              //CODE NIY SALAH
         timeForm = findViewById(R.id.spqueen);
+        backHomeQueen = findViewById(R.id.iv_backHomeQueen);
         initDatePicker();
         dateButton.setText(getTodaysDate());
 
         submitForm = findViewById(R.id.btn_submitform);
+
+        backHomeQueen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BookingFormDobiQueen.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         timepicker = getResources().getStringArray(R.array.timepicker_array);
         timeForm = (Spinner) findViewById(R.id.spqueen);

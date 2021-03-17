@@ -38,7 +38,7 @@ public class UpdateProfile extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
     private FirebaseDatabase firebaseDatabase;
     private FirebaseStorage firebaseStorage;
-    private ImageView updateProfilePic;
+    private ImageView updateProfilePic, backUpProfile;
     private static int PICK_IMAGE = 123;
     Uri imagePath;
     private StorageReference storageReference;
@@ -66,8 +66,17 @@ public class UpdateProfile extends AppCompatActivity {
         newUserEmail = findViewById(R.id.pt_emailupdate);
         save = findViewById(R.id.btn_save);
         updateProfilePic = findViewById(R.id.iv_profilePicUpdate);
+        backUpProfile = findViewById(R.id.iv_backUpProfile);
 
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        backUpProfile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(UpdateProfile.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();

@@ -9,16 +9,28 @@ import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ContactUs extends AppCompatActivity {
 
     Button buttonCall;
+    ImageView backContact;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact_us);
+
+        backContact = findViewById(R.id.iv_backContact);
+
+        backContact.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContactUs.this, homepage.class );
+                startActivity(intent);
+            }
+        });
 
         TextView email = (TextView) findViewById(R.id.tv_ourEmail);
         email.setText(Html.fromHtml("<a href=\"mailto:golaundryhq@gmail.com\">golaundryhq@gmail.com</a>"));

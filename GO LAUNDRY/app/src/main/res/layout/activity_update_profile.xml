@@ -9,7 +9,7 @@
 
     <EditText
         android:id="@+id/pt_nameupdate"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="45dp"
         android:ems="10"
         android:hint="Username"
@@ -23,7 +23,7 @@
 
     <EditText
         android:id="@+id/pt_emailupdate"
-        android:layout_width="250dp"
+        android:layout_width="300dp"
         android:layout_height="45dp"
         android:ems="10"
         android:hint="Email "
@@ -37,8 +37,8 @@
 
     <Button
         android:id="@+id/btn_save"
-        android:layout_width="109dp"
-        android:layout_height="37dp"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button"
         android:text="SAVE"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -58,4 +58,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.168"
         app:srcCompat="@mipmap/photohere" />
+
+    <ImageView
+        android:id="@+id/iv_backUpProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/backarrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>

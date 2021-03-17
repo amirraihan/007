@@ -40,8 +40,8 @@
 
     <Button
         android:id="@+id/btn_edit"
-        android:layout_width="131dp"
-        android:layout_height="48dp"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button"
         android:text="Update Profile"
         android:textSize="12sp"
@@ -53,10 +53,11 @@
 
     <Button
         android:id="@+id/btn_changepass"
-        android:layout_width="152dp"
-        android:layout_height="41dp"
+        android:layout_width="198dp"
+        android:layout_height="40dp"
         android:background="@drawable/custom_button"
         android:text="Change Password"
+        android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -74,4 +75,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.127"
         app:srcCompat="@drawable/common_google_signin_btn_icon_dark_focused" />
+
+    <ImageView
+        android:id="@+id/iv_backProfile"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.042"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.022"
+        app:srcCompat="@drawable/backarrow" />
 </androidx.constraintlayout.widget.ConstraintLayout>
